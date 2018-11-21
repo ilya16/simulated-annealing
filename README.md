@@ -5,9 +5,9 @@
 Application of Simulated Annealing to the Travelling Salesman problem
 as a solution to Assignment #2 in Advanced Statistics course at Innopolis University.
 
-The task is to solve Traveling Salesman problem for the 30 most popular Russian cities.
+The task is to solve the Traveling Salesman problem for the 30 most popular Russian cities.
 
-> [Report link](https://v2.overleaf.com/read/vqjqddbtgmpk)
+> [Report](https://v2.overleaf.com/read/vqjqddbtgmpk)
 
 > [Images and plots](results/images)
 
@@ -29,11 +29,11 @@ The top 30 cities are chosen by the population.
 ## Simulated Annealing algorithm notes
 SA implementation follows the notes from the [Task](https://hackmd.io/s/r1WGbzm6Q). 
 A few considerations are made to improve performance:
-* Path distances are computer in constant `O(1)` time by observing the fact 
-that two successive paths `x_n` and `x_t` differ only in two positions.
+* Path distances are computed in constant `O(1)` time by observing the fact 
+that two successive paths `x_{t+1}` and `x_{t}` differ only in two positions.
 * Early stopping is used when acceptance ratio `alpha` becomes equal to `np.nan`.
-Acceptable `non-nan` paths are observed and one of them is chosen at random to continue the search.
-When all possible paths cannot be accepted (`alpha=np.nan`), algorithm ends execution.
+Acceptable non-nan paths are observed and one of them is chosen at random to continue the search.
+When all possible paths cannot be accepted (`alpha=np.nan` for all new paths) algorithm ends execution.
 A more detailed description is available in [report](https://v2.overleaf.com/read/vqjqddbtgmpk)
 
 ## Experimental setup
@@ -51,11 +51,11 @@ Distances of optimal paths for each annealing rate and
 number of taken iterations are shown in the table below:
 
 | Annealing Rate | # of iterations | Optimal path distance |
-| ---------------|:---------------:|:---------------------:|
+|:--------------:|:---------------:|:---------------------:|
 | 0.9            | 177             | 31722.88 km           |
 | 0.95           | 377             | 24951.07 km           |
 | 0.99           | 2033            | 18245.96 km           |
-| 0.997          | 6813            | 17908.49 km           |
+| **0.997**      | **6813**        | **17908.49 km**       |
 
 Combined convergence rates plot:
 
